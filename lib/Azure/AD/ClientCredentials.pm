@@ -1,5 +1,6 @@
 package Azure::AD::ClientCredentials;
   use Moo;
+  use Azure::AD::Errors;
   use Types::Standard qw/Str Int InstanceOf/;
   use JSON::MaybeXS;
   use Path::Class::File;
@@ -123,10 +124,10 @@ package Azure::AD::ClientCredentials;
     );
 
     if (not $auth_response->{ success }) {
-      Azure::Exception->throw(
+      Azure::AD::RemoteError->throw(
         message => $auth_response->{ content },
         code => 'GetClientCredentialsFailed',
-        http_status => $auth_response->{ status }
+        status => $auth_response->{ status }
       );
     }
 
