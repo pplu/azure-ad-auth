@@ -1,4 +1,4 @@
-package Azure::Credentials::AzureADClientCredentials;
+package Azure::AD::ClientCredentials;
   use Moose;
   use JSON::MaybeXS;
   use Path::Class::File;
