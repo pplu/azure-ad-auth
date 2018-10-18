@@ -144,5 +144,4 @@ package Azure::AD::ClientCredentials;
     $self->_save_to_cache;
   }
 
-  with 'Azure::Credential';
 1;
