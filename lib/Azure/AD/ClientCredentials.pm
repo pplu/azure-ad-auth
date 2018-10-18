@@ -4,12 +4,19 @@ package Azure::AD::ClientCredentials;
   use Types::Standard qw/Str Int InstanceOf/;
   use JSON::MaybeXS;
   use Path::Class::File;
+  use HTTP::Tiny;
+
+  our $VERSION = '0.01';
+
+  has ua_agent => (is => 'ro', isa => Str, default => sub {
+    'Azure::AD::ClientCredentials ' . $Azure::AD::ClientCredentials::VERSION
+  });
 
   has ua => (is => 'rw', required => 1, lazy => 1,
     default     => sub {
-      use HTTP::Tiny;
+      my $self = shift;
       HTTP::Tiny->new(
-        agent => 'Azure Perl SDK ' . $Azure::VERSION,
+        agent => $self->ua_agent,
         timeout => 60,
       );
     }
