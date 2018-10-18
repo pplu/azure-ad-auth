@@ -1,5 +1,6 @@
 package Azure::AD::ClientCredentials;
-  use Moose;
+  use Moo;
+  use Types::Standard qw/Str Int InstanceOf/;
   use JSON::MaybeXS;
   use Path::Class::File;
 
@@ -15,13 +16,13 @@ package Azure::AD::ClientCredentials;
 
   has resource_id => (
     is => 'ro',
-    isa => 'Str',
-    default => "https://management.core.windows.net/"
+    isa => Str,
+    required => 1,
   );
 
   has tenant_id => (
     is => 'ro',
-    isa => 'Str',
+    isa => Str,
     required => 1,
     default => sub {
       $ENV{AZURE_TENANT_ID}
@@ -30,7 +31,7 @@ package Azure::AD::ClientCredentials;
 
   has client_id => (
     is => 'ro',
-    isa => 'Str',
+    isa => Str,
     required => 1,
     default => sub {
       $ENV{AZURE_CLIENT_ID}
@@ -39,7 +40,7 @@ package Azure::AD::ClientCredentials;
 
   has secret_id => (
     is => 'ro',
-    isa => 'Str',
+    isa => Str,
     required => 1,
     default => sub {
       $ENV{AZURE_SECRET_ID}
@@ -48,7 +49,7 @@ package Azure::AD::ClientCredentials;
 
   has token_endpoint => (
     is => 'ro',
-    isa => 'Str',
+    isa => Str,
     lazy => 1,
     default => sub {
       my $self = shift;
@@ -66,14 +67,14 @@ package Azure::AD::ClientCredentials;
 
   has expiration => (
     is => 'rw',
-    isa => 'Int',
+    isa => Int,
     lazy => 1,
     default => sub { 0 }
   );
 
   has _cache_file => (
     is => 'ro',
-    isa => 'Path::Class::File',
+    isa => InstanceOf['Path::Class::File'],
     lazy => 1,
     default => sub {
       my $self = shift;
