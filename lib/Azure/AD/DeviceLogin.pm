@@ -51,13 +51,21 @@ package Azure::AD::DeviceLogin;
     }
   );
 
+  has ad_url => (
+    is => 'ro',
+    isa => Str,
+    default => sub {
+      'https://login.microsoftonline.com'
+    },
+  );
+
   has device_endpoint => (
     is => 'ro',
     isa => Str,
     lazy => 1,
     default => sub {
       my $self = shift;
-      sprintf "https://login.microsoftonline.com/%s/oauth2/devicecode", $self->tenant_id;
+      sprintf '%s/%s/oauth2/devicecode', $self->ad_url, $self->tenant_id;
     }
   );
 
@@ -67,10 +75,9 @@ package Azure::AD::DeviceLogin;
     lazy => 1,
     default => sub {
       my $self = shift;
-      sprintf "https://login.microsoftonline.com/%s/oauth2/token", $self->tenant_id;
+      sprintf "%s/%s/oauth2/token", $self->ad_url, $self->tenant_id;
     }
   );
-
 
   sub access_token {
     my $self = shift;
