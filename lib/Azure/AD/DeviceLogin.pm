@@ -3,7 +3,6 @@ package Azure::AD::DeviceLogin;
   use Azure::AD::Errors;
   use Types::Standard qw/Str Int InstanceOf CodeRef/;
   use JSON::MaybeXS;
-  use Path::Class::File;
   use HTTP::Tiny;
 
   our $VERSION = '0.01';
@@ -88,34 +87,15 @@ package Azure::AD::DeviceLogin;
     default => sub { 0 }
   );
 
-  has _cache_file => (
-    is => 'ro',
-    isa => InstanceOf['Path::Class::File'],
-    lazy => 1,
-    default => sub {
-      my $self = shift;
-      return Path::Class::File->new(
-        '',                        # filesystem root
-        'tmp',                     # tmp
-        '.azure_sdk_' . $self->tenant_id . '_' . $self->client_id
-      );  
-    }
-  );
-
   sub _refresh_from_cache {
     my $self = shift;
-    return if (not $self->_cache_file->stat);
-    my $content = $self->_cache_file->slurp;
-    my $auth = decode_json($content);
-    return if $auth->{ expires_on } < time;
-    $self->current_creds($auth);
-    $self->expiration($auth->{ expires_on });
+    #TODO: implement caching strategy
+    return undef;
   }
 
   sub _save_to_cache {
     my $self = shift;
-    my $content = encode_json($self->current_creds);
-    $self->_cache_file->spew($content);
+    #TODO: implement caching strategy
   }
 
   sub get_device_payload {
