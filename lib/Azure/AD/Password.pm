@@ -5,7 +5,7 @@ package Azure::AD::Password;
   use JSON::MaybeXS;
   use HTTP::Tiny;
 
-  our $VERSION = '0.01';
+  our $VERSION = '0.02';
 
   has ua_agent => (is => 'ro', isa => Str, default => sub {
     'Azure::AD::Password ' . $Azure::AD::Password::VERSION
