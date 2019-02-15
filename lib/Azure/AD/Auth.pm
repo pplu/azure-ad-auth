@@ -11,7 +11,7 @@ Azure::AD::Auth - Libraries for authenticating through Azure AD
 
 =head1 DESCRIPTION
 
-This set of modules helps you authenticated with Azure Active Directory. Note that
+This set of modules helps you authenticate with Azure Active Directory. Note that
 "Azure Active Directory" is not "Active Directory". Azure Active Directory is an
 online authentication service that speaks OAuth2, SAML and other protocols (and 
 doesn't speak LDAP, like traditional Active Directory"

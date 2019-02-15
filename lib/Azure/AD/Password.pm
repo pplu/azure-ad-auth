@@ -201,7 +201,7 @@ Returns the access token that has to be sent to the APIs you want to access. Thi
 is normally sent in the Authentication header of HTTPS requests as a Bearer token.
 
 The access_token is cached in the object as long as it's valid, so subsequent calls
-to access_token will return the appropiate token without reauthenticating to Azure AD. 
+to access_token will return the appropriate token without reauthenticating to Azure AD. 
 If the token has expired, access_token will call Azure AD to obtain a new token transparently.
 
 Example usage:
