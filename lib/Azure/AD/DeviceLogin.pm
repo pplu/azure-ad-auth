@@ -252,7 +252,7 @@ awaiting the user to complete the flow. Once the user completes the instructions
 will be returned.
 
 The access_token is cached in the object as long as it's valid, so subsequent calls
-to access_token will return the appropiate token without reauthenticating to Azure AD. 
+to access_token will return the appropriate token without reauthenticating to Azure AD. 
 If the token has expired, access_token will call Azure AD to obtain a new token.
 
 Example usage:
