@@ -188,7 +188,7 @@ Azure::AD::DeviceLogin - Azure AD Device Login authentication flow
 =head1 SYNOPSIS
 
   use Azure::AD::DeviceLogin;
-  my $creds = Azure::AD::ClientCredentials->new(
+  my $creds = Azure::AD::DeviceLogin->new(
     resource_id => 'https://management.core.windows.net/',
     message_handler => sub { say $_[0] },
     client_id => '',
