@@ -25,6 +25,8 @@ L<Azure::AD::ClientCredentials>
 
 L<Azure::AD::DeviceLogin>
 
+L<Azure::AD::Password>
+
 =head1 SEE ALSO
 
 L<https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc>
