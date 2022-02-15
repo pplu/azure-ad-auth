@@ -1,5 +1,5 @@
 package Azure::AD::Auth;
-  our $VERSION = '0.03';
+  our $VERSION = '0.04';
 1;
 ### main pod documentation begin ###
 
