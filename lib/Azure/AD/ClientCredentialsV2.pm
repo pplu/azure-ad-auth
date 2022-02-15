@@ -160,7 +160,7 @@ Azure::AD::ClientCredentialsV2 - Azure AD Client Credentials authentication flow
 
 =head1 DESCRIPTION
 
-Implements the Azure AD Client Credentials flow. See L<Azure::AD::Auth> for more
+Implements the Azure AD Client Credentials flow using the V2 Oauth endpoint. See L<Azure::AD::Auth> for more
 information and alternative flows.
 
 =head1 ATTRIBUTES

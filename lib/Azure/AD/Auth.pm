@@ -23,6 +23,8 @@ flow:
 
 L<Azure::AD::ClientCredentials>
 
+L<Azure::AD::ClientCredentialsV2>
+
 L<Azure::AD::DeviceLogin>
 
 L<Azure::AD::Password>
@@ -36,6 +38,10 @@ L<https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-o
     Jose Luis Martinez
     CAPSiDE
     jlmartinez@capside.com
+
+=head1 THANKS
+
+iamlgh for Client Credentials V2 module
 
 =head1 BUGS and SOURCE
 
